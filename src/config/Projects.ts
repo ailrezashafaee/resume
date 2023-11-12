@@ -7,16 +7,34 @@ import Cryp2 from "../assets/crypto2.png";
 import Cryp3 from "../assets/crypto3.png";
 import Cryp4 from "../assets/crypto4.png";
 import Cryp5 from "../assets/crypto5.png";
+import Baham1 from "../assets/baham1.jpg";
+import Baham2 from "../assets/baham2.jpg";
+import Sa1 from "../assets/p4.png";
+import Sa2 from "../assets/p5.png";
+import Sa3 from "../assets/p6.png";
+import Sa4 from "../assets/p7.png";
+import Todo1 from "../assets/todo0.png";
+import Todo2 from "../assets/todo1.png";
+import Todo3 from "../assets/todo2.png";
 const PROJECTS = [
   {
     name: "Farez",
-    stack: ["NextJS", "React", "Zustand", "ReactQuery", "Axios", "TailwindCss"],
+    stack: [
+      "NextJS",
+      "Typescript",
+      "React",
+      "Zustand",
+      "ReactQuery",
+      "Axios",
+      "TailwindCss",
+    ],
     images: [Farez1, Farez2, Farez3, Farez4],
   },
   {
     name: "Crypto Payment",
     stack: [
       "NextJS",
+      "Typescript",
       "React",
       "Redux-Toolkit",
       "Axios",
@@ -27,13 +45,36 @@ const PROJECTS = [
   },
   {
     name: "Baham",
-    stack: ["React", "Redux", "CSS Modules", "Material UI", "Axios"],
-    images: [Farez1, Farez2, Farez3, Farez4],
+    stack: [
+      "React",
+      "Redux",
+      "CSS Modules",
+      "Material UI",
+      "RestAPI",
+    ],
+    images: [Baham1, Baham2],
   },
   {
     name: "Data Analysis Panel",
-    stack: ["React", "Redux", "CSS Modules", "Material UI", "Axios"],
-    images: [Farez1, Farez2, Farez3, Farez4],
+    stack: [
+      "React",
+      "Typescript",
+      "Redux",
+      "TailwindCss",
+      "Material UI",
+      "Axios",
+      "ChartJS",
+    ],
+    images: [Sa1, Sa2, Sa3],
+  },
+  {
+    name: "Todo list",
+    stack: [
+      "Javascript",
+      "Html",
+      "CSS",
+    ],
+    images: [Todo2, Todo3, Todo1],
   },
 ];
 export default PROJECTS;

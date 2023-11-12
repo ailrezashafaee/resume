@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { TfiDownload } from "react-icons/tfi";
 import PersonalInfo from "./components/personal";
 import Skill from "./components/skill";
@@ -7,11 +7,52 @@ import { SkillsConfig } from "./config/skills";
 import { SoftwareSkills } from "./config/software";
 import Experience from "./components/experence";
 import { WorkExperience } from "./config/Experience";
+import Project from "./components/project";
+import PROJECTS from "./config/Projects";
+import { AiFillMessage } from "react-icons/ai";
+import emailjs from "@emailjs/browser";
 function App() {
   const [tab, setTab] = useState(0);
   const [list, setList] = useState(SkillsConfig);
+  const form = useRef();
+  const sendEmail = (e) => {
+    let time1;
+    e.preventDefault();
+    emailjs.sendForm(
+      "service_05m9jhi",
+      "template_uuy6t1m",
+      form.current,
+      "cVRqWLnfimA1uR3CG",
+    )
+      .then((result) => {
+        setActive({ active: 1, message: "Success, Thanks for your message!" });
+        time1 = setTimeout(() => {
+          setActive({
+            active: 0,
+            message: "Success, Thanks for your message!",
+          });
+        }, 5000);
+      }, (error) => {
+        setActive({ active: 1, message: error });
+        time1 = setTimeout(() => {
+          setActive({ active: 0, message: error });
+        }, 5000);
+      });
+  };
+  const [active, setActive] = useState({ active: 0, message: "" });
   return (
     <>
+      <header className="z-50 w-full m-auto flex sticky -top-1.5 items-center justify-center text-xl py-6">
+        <div className=" bg-light_card opacity-60 absolute top-0 left-0 right-0 bottom-0">
+        </div>
+        <div className="w-1/2 flex items-center relative z-40 justify-between m-auto">
+          <a href="#about" className=" hover:text-white">About Me</a>
+          <a href="#skills" className="hover:text-white">Skills</a>
+          <a href="#experience" className="hover:text-white">Work Experience</a>
+          <a href="#projects" className="hover:text-white">Projects</a>
+          <a href="#contact" className="hover:text-white">Contact Us</a>
+        </div>
+      </header>
       <PersonalInfo />
       <section className="flex cursor-default m-auto mt-12 py-5 w-[634px] justify-center items-center ">
         <div className="flex items-center flex-col m-auto text-2xl">
@@ -53,12 +94,21 @@ function App() {
           About me
         </h1>
         <div>
-         <p>
-            Hi, I am Alireza, a front-end developer based in Tehran. I have a great foundation in computer science and problem solving. I like to find new things and combine them together. I kept myself busy learning about new designs and systems,as currently I'm learning more about PWA and NextJS. I also love coding in neovim and I like to customize everything how I like. Let's talk if you're interested in, but don't forget to bring coffee:)
-          </p>   
+          <p>
+            Hi, I am Alireza, a front-end developer based in Tehran. I have a
+            great foundation in computer science and problem solving. I like to
+            find new things and combine them together. I kept myself busy
+            learning about new designs and systems,as currently I'm learning
+            more about PWA and NextJS. I also love coding in neovim and I like
+            to customize everything how I like. Let's talk if you're interested
+            in, but don't forget to bring coffee:)
+          </p>
         </div>
       </section>
-      <section className="w-[756px] m-auto mt-32 text-[22px] font-medium">
+      <section
+        id="skills"
+        className="w-[756px] m-auto mt-32 text-[22px] font-medium"
+      >
         <h1 className="text-center text-[#F1F2F4] text-[46px] mb-3">
           Skills
         </h1>
@@ -92,7 +142,11 @@ function App() {
           })}
         </div>
       </section>
-      <section className="mt-12 w-10/12 m-auto text-[22px] items-center justify-center gap-9">
+
+      <section
+        id="experience"
+        className="max-w-[1280px] mt-12 w-7/12 m-auto text-[22px] items-center justify-center gap-9"
+      >
         <h1 className="text-center text-[#F1F2F4] text-[46px] mb-3">
           Work Experience
         </h1>
@@ -108,6 +162,80 @@ function App() {
           ))}
         </div>
       </section>
+      <section
+        id="projects"
+        className="mt-20 w-7/12 m-auto text-[22px] items-center justify-center gap-9"
+      >
+        <h1 className="text-center text-[#F1F2F4] text-[46px] mb-3">
+          Projects
+        </h1>
+        <div className="flex flex-col space-y-6">
+          {PROJECTS.map((value, index) => <Project {...value} key={index} />)}
+        </div>
+      </section>
+      <section
+        id="contact"
+        className="mt-40 w-6/12 m-auto text-[22px] items-center justify-center gap-9"
+      >
+        <h1 className="text-center text-[#F1F2F4] text-[46px] mb-3">
+          Contact Us
+        </h1>
+        <form
+          onSubmit={sendEmail}
+          ref={form}
+          className="flex flex-col items-start"
+        >
+          <label htmlFor="" className="pl-4 my-2 font-bold">Name</label>
+          <div className="rounded-xl bg-light_card mb-4 w-full border-2 border-gray hover:border-primary transition flex items-center justify-start py-2 px-6">
+            <input
+              type="text"
+              placeholder="Your full name..."
+              className="bg-transparent w-full placeholder:text-text focus:outline-none "
+              required
+            />
+          </div>
+          <label htmlFor="" className="pl-4 my-2 font-bold">Email</label>
+          <div className="rounded-xl bg-light_card mb-4 w-full border-2 border-gray hover:border-primary transition flex items-center justify-start py-2 px-6">
+            <input
+              type="email"
+              placeholder="example@mail.com"
+              className="bg-transparent w-full placeholder:text-text focus:outline-none "
+              required
+            />
+          </div>
+          <label htmlFor="" className="pl-4 my-2 font-bold">Message</label>
+          <div className="rounded-xl bg-light_card w-full border-2 border-gray hover:border-primary transition flex items-center justify-start py-2 px-6">
+            <textarea
+              type="email"
+              placeholder="Type here..."
+              rows={7}
+              className="bg-transparent w-full placeholder:text-text focus:outline-none "
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="h-14 hover:bg-light_card hover:text-primary transition text-center justify-center text-background font-medium w-[240px] flex text-xl items-center mt-6 space-x-3 rounded-[10px] bg-primary"
+          >
+            <span>Send Message</span>
+            <AiFillMessage className="text-2xl" />
+          </button>
+          {
+            <div
+              className={`mt-6 py-3 px-10 rounded-xl bg-light_card opacity-0 text-xl transition font-bold ${
+                active.active === 1 ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              {active.message}
+            </div>
+          }
+        </form>
+      </section>
+      <footer className="w-full bg-light_card">
+        <div className="">
+          <small>&copy; Made by Alireza.</small>
+        </div>
+      </footer>
     </>
   );
 }

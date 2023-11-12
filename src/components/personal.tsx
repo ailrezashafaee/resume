@@ -2,7 +2,7 @@ import { BsGithub, BsInstagram, BsLinkedin, BsTelegram } from "react-icons/bs";
 import MyImage from "../assets/myimage.jpg";
 const PersonalInfo = () => {
   return (
-    <section className="flex m-auto justify-center items-center gap-10">
+    <section id="about" className="mt-24 flex m-auto justify-center items-center gap-10">
       <div className="h-48 transition relative w-48 rounded-full flex items-center justify-center overflow-hidden border-[3px] outline  border-background">
         <div className="absolute top-0 bottom-0 right-0 left-0 bg-background hover:opacity-30 opacity-0 transition">
         </div>
