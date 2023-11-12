@@ -2,7 +2,7 @@ const WorkExperience = [
   {
     label: "Freelancer Developer",
     body:
-      "I've been working as a freelancer developer since last year, I handle all the front-end design from zero to production steps of the projects I was working on. It helps me learn communicating better with customers and how to meet their needs. I found myself Enjoying reading about new technologies out there and I started to learn about different designs or arcituctures. I love to engage in new challanges such as optimization, data fatching or ... problems",
+      "I've been working as a freelancer developer since last year, I handle all the front-end design from zero to production steps of the projects I was working on. It helps me learn communicating better with customers and how to meet their needs. I found myself Enjoying reading about new technologies out there and I started to learn about different designs or arcituctures. I love to engage in new challanges such as optimization, data fatching problems.",
     year: "2022 - 2023",
     tags: [
       "React",
