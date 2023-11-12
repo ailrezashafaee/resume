@@ -14,19 +14,19 @@ import emailjs from "@emailjs/browser";
 function App() {
   const [tab, setTab] = useState(0);
   const [list, setList] = useState(SkillsConfig);
-  const form = useRef();
-  const sendEmail = (e) => {
-    let time1;
+  const form = useRef<HTMLFormElement>(null);
+  const sendEmail = (e: any) => {
     e.preventDefault();
     emailjs.sendForm(
       "service_05m9jhi",
       "template_uuy6t1m",
-      form.current,
+      form.current!,
       "cVRqWLnfimA1uR3CG",
     )
       .then((result) => {
         setActive({ active: 1, message: "Success, Thanks for your message!" });
-        time1 = setTimeout(() => {
+        console.log(result);
+        setTimeout(() => {
           setActive({
             active: 0,
             message: "Success, Thanks for your message!",
@@ -34,7 +34,7 @@ function App() {
         }, 5000);
       }, (error) => {
         setActive({ active: 1, message: error });
-        time1 = setTimeout(() => {
+        setTimeout(() => {
           setActive({ active: 0, message: error });
         }, 5000);
       });
@@ -197,7 +197,7 @@ function App() {
           <label htmlFor="" className="pl-4 my-2 font-bold">Email</label>
           <div className="rounded-xl bg-light_card mb-4 w-full border-2 border-gray hover:border-primary transition flex items-center justify-start py-2 px-6">
             <input
-              type="email"
+              type="text"
               placeholder="example@mail.com"
               className="bg-transparent w-full placeholder:text-text focus:outline-none "
               required
@@ -206,7 +206,6 @@ function App() {
           <label htmlFor="" className="pl-4 my-2 font-bold">Message</label>
           <div className="rounded-xl bg-light_card w-full border-2 border-gray hover:border-primary transition flex items-center justify-start py-2 px-6">
             <textarea
-              type="email"
               placeholder="Type here..."
               rows={7}
               className="bg-transparent w-full placeholder:text-text focus:outline-none "

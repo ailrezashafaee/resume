@@ -12,7 +12,6 @@ import Baham2 from "../assets/baham2.jpg";
 import Sa1 from "../assets/p4.png";
 import Sa2 from "../assets/p5.png";
 import Sa3 from "../assets/p6.png";
-import Sa4 from "../assets/p7.png";
 import Todo1 from "../assets/todo0.png";
 import Todo2 from "../assets/todo1.png";
 import Todo3 from "../assets/todo2.png";
