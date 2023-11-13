@@ -24,19 +24,18 @@ function App() {
       form.current!,
       "cVRqWLnfimA1uR3CG",
     )
-      .then((result) => {
+      .then((_) => {
         setActive({ active: 1, message: "Success, Thanks for your message!" });
-        console.log(result);
         setTimeout(() => {
           setActive({
             active: 0,
             message: "Success, Thanks for your message!",
           });
         }, 5000);
-      }, (error) => {
-        setActive({ active: 1, message: error });
+      }, (_) => {
+        setActive({ active: 1, message: "Failed! Please send again." });
         setTimeout(() => {
-          setActive({ active: 0, message: error });
+          setActive({ active: 0, message: "Failed! Please send again." });
         }, 5000);
       });
   };
@@ -194,27 +193,32 @@ function App() {
           ref={form}
           className="flex flex-col items-start"
         >
-          <label htmlFor="" className="pl-4 my-2 font-bold">Name</label>
+          <label htmlFor="name" className="pl-4 my-2 font-bold">Name</label>
           <div className="rounded-xl bg-light_card mb-4 w-full border-2 border-gray hover:border-primary transition flex items-center justify-start py-2 px-6">
             <input
+              name="name"
               type="text"
               placeholder="Your full name..."
               className="bg-transparent w-full placeholder:text-text focus:outline-none "
               required
             />
           </div>
-          <label htmlFor="" className="pl-4 my-2 font-bold">Email</label>
+          <label htmlFor="email" className="pl-4 my-2 font-bold">Email</label>
           <div className="rounded-xl bg-light_card mb-4 w-full border-2 border-gray hover:border-primary transition flex items-center justify-start py-2 px-6">
             <input
+              name="email"
               type="text"
               placeholder="example@mail.com"
               className="bg-transparent w-full placeholder:text-text focus:outline-none "
               required
             />
           </div>
-          <label htmlFor="" className="pl-4 my-2 font-bold">Message</label>
+          <label htmlFor="message" className="pl-4 my-2 font-bold">
+            Message
+          </label>
           <div className="rounded-xl bg-light_card w-full border-2 border-gray hover:border-primary transition flex items-center justify-start py-2 px-6">
             <textarea
+              name="message"
               placeholder="Type here..."
               rows={7}
               className="bg-transparent w-full placeholder:text-text focus:outline-none "
