@@ -1,7 +1,3 @@
-import Farez1 from "../assets/farez1.png";
-import Farez2 from "../assets/farez2.png";
-import Farez3 from "../assets/farez3.png";
-import Farez4 from "../assets/farez4.png";
 import Cryp1 from "../assets/crypto.png";
 import Cryp2 from "../assets/crypto2.png";
 import Cryp3 from "../assets/crypto3.png";
