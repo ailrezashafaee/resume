@@ -16,20 +16,7 @@ import Todo1 from "../assets/todo0.png";
 import Todo2 from "../assets/todo1.png";
 import Todo3 from "../assets/todo2.png";
 const PROJECTS = [
-  {
-    name: "Farez",
-    stack: [
-      "NextJS",
-      "Typescript",
-      "React",
-      "Zustand",
-      "ReactQuery",
-      "Axios",
-      "TailwindCss",
-    ],
-    images: [Farez1, Farez2, Farez3, Farez4],
-  },
-  {
+    {
     name: "Crypto Payment",
     stack: [
       "NextJS",

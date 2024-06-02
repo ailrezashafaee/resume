@@ -16,7 +16,7 @@ const PersonalInfo = () => {
           Alireza Shafaee
         </h1>
         <span className="text-[22px] leading-[normal] pl-1">
-          Software Engineer
+          Computer Science student  
         </span>
         <div className="flex items-center space-x-8 mt-3 pl-1 text-[28px]">
           <a
